@@ -20,14 +20,17 @@ export default function springCore(settings: any) {
   const roundingPrecision = Math.pow(10, props.precision);
   const dumpingPrecision = 1 / roundingPrecision;
 
-  const output: any = computed({
-    get: () => roundNumber(state.currentValue),
-    set: (val) => {
-      if (typeof val !== 'number') return;
-      state.desiredValue = lastDesiredValue = val;
-      animationId = requestAnimation(dumpValue);
-    },
-  });
+  const output: any = reactive({
+    value: computed({
+      get: () => roundNumber(state.currentValue),
+      set: (val) => {
+        if (typeof val !== 'number') return;
+        state.desiredValue = lastDesiredValue = val;
+        animationId = requestAnimation(dumpValue);
+      },
+    }),
+    state
+  })
 
   // start action
   if (state.currentValue !== state.desiredValue) {
