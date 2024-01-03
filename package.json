@@ -1,5 +1,5 @@
 {
-  "name": "vue3-spring",
+  "name": "@arg0nny/vue3-spring",
   "version": "0.0.2",
   "scripts": {
     "build": "rollup -c",
@@ -9,8 +9,8 @@
     "docs:serve": "vitepress serve docs",
     "docs:deploy": "bash scripts/docs-deploy.sh"
   },
-  "main": "dist/spring.js",
-  "module": "dist/spring.es.js",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
   "devDependencies": {
     "eslint": "^7.18.0",
     "prettier": "^2.2.1",
